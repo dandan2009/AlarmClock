@@ -7,6 +7,7 @@
 //
 
 #import "MDAppDelegate.h"
+#import "MDRootViewController.h"
 
 @implementation MDAppDelegate
 
@@ -14,6 +15,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    MDRootViewController *mvc = [[MDRootViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mvc];
+    self.window.rootViewController = navigationController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
