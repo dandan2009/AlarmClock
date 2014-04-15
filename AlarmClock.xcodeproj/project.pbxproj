@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		17DC40199B4B4DEFA792C2E1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DFBEEE26D74A1F987B9C76 /* libPods.a */; };
+		6612247C18FD6FFF007DEB9B /* MDContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612247B18FD6FFF007DEB9B /* MDContainerViewController.m */; };
+		6612247F18FD73FD007DEB9B /* MDShadowVCenterContainerVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612247E18FD73FD007DEB9B /* MDShadowVCenterContainerVIew.m */; };
 		66F4872018FCE33700C2D0AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F4871F18FCE33700C2D0AB /* Foundation.framework */; };
 		66F4872218FCE33700C2D0AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F4872118FCE33700C2D0AB /* CoreGraphics.framework */; };
 		66F4872418FCE33700C2D0AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F4872318FCE33700C2D0AB /* UIKit.framework */; };
@@ -73,6 +75,10 @@
 /* Begin PBXFileReference section */
 		19DFBEEE26D74A1F987B9C76 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3F7DA4F42C47FBAE7258DD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		6612247A18FD6FFF007DEB9B /* MDContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDContainerViewController.h; sourceTree = "<group>"; };
+		6612247B18FD6FFF007DEB9B /* MDContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDContainerViewController.m; sourceTree = "<group>"; };
+		6612247D18FD73FD007DEB9B /* MDShadowVCenterContainerVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDShadowVCenterContainerVIew.h; sourceTree = "<group>"; };
+		6612247E18FD73FD007DEB9B /* MDShadowVCenterContainerVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDShadowVCenterContainerVIew.m; sourceTree = "<group>"; };
 		66F4871C18FCE33700C2D0AB /* AlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F4871F18FCE33700C2D0AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66F4872118FCE33700C2D0AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,6 +166,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6612247918FD6F63007DEB9B /* ContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6612247A18FD6FFF007DEB9B /* MDContainerViewController.h */,
+				6612247B18FD6FFF007DEB9B /* MDContainerViewController.m */,
+				6612247D18FD73FD007DEB9B /* MDShadowVCenterContainerVIew.h */,
+				6612247E18FD73FD007DEB9B /* MDShadowVCenterContainerVIew.m */,
+			);
+			name = ContainerViewController;
+			sourceTree = "<group>";
+		};
 		66F4871318FCE33700C2D0AB = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +278,7 @@
 		66F4879118FCF23100C2D0AB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6612247918FD6F63007DEB9B /* ContainerViewController */,
 				66F487E118FCF2B900C2D0AB /* MDRootViewController.h */,
 				66F487E218FCF2B900C2D0AB /* MDRootViewController.m */,
 				66F487E318FCF2B900C2D0AB /* MDRootViewController.xib */,
@@ -482,7 +500,9 @@
 				66F487DE18FCF2A700C2D0AB /* MDWeatherConnection.m in Sources */,
 				66F487DF18FCF2A700C2D0AB /* MDWeatherManager.m in Sources */,
 				66F4872C18FCE33700C2D0AB /* main.m in Sources */,
+				6612247C18FD6FFF007DEB9B /* MDContainerViewController.m in Sources */,
 				66F487DC18FCF2A700C2D0AB /* MDTransformerDateFormatter.m in Sources */,
+				6612247F18FD73FD007DEB9B /* MDShadowVCenterContainerVIew.m in Sources */,
 				66F4873018FCE33700C2D0AB /* MDAppDelegate.m in Sources */,
 				66F487E418FCF2B900C2D0AB /* MDRootViewController.m in Sources */,
 				66F487DD18FCF2A700C2D0AB /* MDWeatherCondition.m in Sources */,
