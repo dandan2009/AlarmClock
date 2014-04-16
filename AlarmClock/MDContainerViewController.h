@@ -34,7 +34,7 @@
 
 /** This Method Can Close The MenuView And Display The CenterView **/
 
-- (void)CloseTheMenu;
+- (void)closeTheMenu;
 
 @end
 

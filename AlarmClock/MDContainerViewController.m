@@ -136,7 +136,7 @@ typedef NS_ENUM(NSInteger, MDContainerViewControllerState) {
     [self menuOpening];
 }
 
-- (void)CloseTheMenu
+- (void)closeTheMenu
 {
     [self menuWillClose];
     [self menuClosing];
