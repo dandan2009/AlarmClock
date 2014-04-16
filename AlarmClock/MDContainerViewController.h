@@ -10,15 +10,31 @@
 
 @interface MDContainerViewController : UIViewController
 
+/** To Accoss The Concent View Controller Add Two Property **/
+
 @property (nonatomic, strong, readonly) UIViewController *centerViewController;
 @property (nonatomic, strong, readonly) UIViewController *menuViewController;
+
+
+/** Some Configuration To ContainerViewController **/
+
 @property (nonatomic, assign) CGFloat menuViewWidth;
+
+
+/** The Initialize Method Add Two ViewController for Container **/
 
 - (id)initWithCenterViewController:(UIViewController *)centerViewController
                 menuViewController:(UIViewController *)menuViewController;
 
-- (void)open;
-- (void)close;
+
+
+/** Invoking This Method Can Open The MenuView **/
+
+- (void)openTheMenu;
+
+/** This Method Can Close The MenuView And Display The CenterView **/
+
+- (void)CloseTheMenu;
 
 @end
 
