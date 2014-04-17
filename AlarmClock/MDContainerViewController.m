@@ -316,14 +316,13 @@ static CGFloat kMDSpringVelocity = 0.1f;
 
 - (void)menuDidClose
 {
+    self.containerState = MDContainerViewControllerClosed;
+
     [self.menuViewController.view removeFromSuperview];
     [self.menuViewController removeFromParentViewController];
-    
     [self.menuContainerView removeFromSuperview];
-    
     [self removeTapGesture];
     
-    self.containerState = MDContainerViewControllerClosed;
 }
 
 
