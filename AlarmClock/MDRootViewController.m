@@ -10,7 +10,7 @@
 #import "MDTransformerDateFormatter.h"
 #import "MDWeatherManager.h"
 #import "NSDate+CurrentTimeIntervalWith24Hour.h"
-
+#import "MDContainerViewController.h"
 
 @interface MDRootViewController()
 
@@ -132,7 +132,11 @@
 #pragma mark - The navigation bar button action
 - (void)menuButton:(id)sender
 {
-    
+    if ([self container].containerState == MDContainerViewControllerClosed) {
+        [[self container] openTheMenu];
+    } else if ([self container].containerState == MDContainerViewControllerOpen) {
+        [[self container] closeTheMenu];
+    }
 }
 
 - (void)addButton:(id)sender

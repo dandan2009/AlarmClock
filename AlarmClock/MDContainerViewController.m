@@ -11,7 +11,7 @@
 
 /** Default Some Value **/
 
-static CGFloat kMDMenuViewOpenWidth = 260.0f;
+static CGFloat kMDMenuViewOpenWidth = 270.0f;
 static CGFloat kMDMenuViewDefaultPosition = -90.0f;
 static CGFloat kMDOpeningAnimationDuration = 0.5f;
 static CGFloat kMDClosingAnimationDuration = 0.6f;

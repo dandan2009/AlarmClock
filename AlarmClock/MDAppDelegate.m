@@ -8,6 +8,8 @@
 
 #import "MDAppDelegate.h"
 #import "MDRootViewController.h"
+#import "MDContainerViewController.h"
+#import "MDMenuViewController.h"
 
 @implementation MDAppDelegate
 
@@ -18,7 +20,12 @@
     
     MDRootViewController *mvc = [[MDRootViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mvc];
-    self.window.rootViewController = navigationController;
+    
+    MDMenuViewController *menuViewController = [[MDMenuViewController alloc] init];
+    MDContainerViewController *containerViewController = [[MDContainerViewController alloc] initWithCenterViewController:navigationController menuViewController:menuViewController];
+    
+    self.window.rootViewController = containerViewController;
+
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
