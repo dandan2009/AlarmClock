@@ -9,10 +9,10 @@
 #import "MDMenuViewController.h"
 #import "MDTableViewCell.h"
 #import "MDContainerViewController.h"
+#import "MDImagePicker.h"
 
 @interface MDMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UIImageView *menuImageView;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -62,12 +62,14 @@
         case 0:
         {
             cell.lableName.text = @"Main";
+            //cell.lableName.textColor = [UIColor whiteColor];
             cell.lableName.textColor = [UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0];
         }
             break;
         case 1:
         {
             cell.lableName.text = @"About";
+            //cell.lableName.textColor = [UIColor whiteColor];
             cell.lableName.textColor = [UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0];
         }
             
@@ -124,17 +126,17 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-    UIImageView *footerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-25, 9, 320, 187)];
-    footerImageView.image = [UIImage imageNamed:@"menu_another_cell_image"];
-    footerImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [footerView addSubview:footerImageView];
+    UIView *footerView = [[UIView alloc] init];
+    //footerView.backgroundColor = [UIColor yellowColor];
+    MDImagePicker *imagePicker = [[MDImagePicker alloc] initWithFrame:CGRectMake(12, 5, 320, 250)];
+    [footerView addSubview:imagePicker];
+
     return footerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 150;
+    return 250;
 }
 
 @end

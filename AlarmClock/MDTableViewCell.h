@@ -13,6 +13,4 @@
 @property (nonatomic, weak) IBOutlet UILabel *lableName;
 @property (nonatomic, weak) IBOutlet UIImageView *image;
 
-
-
 @end
