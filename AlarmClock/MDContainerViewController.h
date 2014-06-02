@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, MDContainerViewControllerState) {
 @interface MDContainerViewController : UIViewController
 
 
-@property (nonatomic, strong, readonly) UIViewController *centerViewController;
+@property (nonatomic, strong, readonly) UINavigationController *centerViewController;
 @property (nonatomic, strong, readonly) UIViewController *menuViewController;
 @property (nonatomic, assign) MDContainerViewControllerState containerState;
 
@@ -36,6 +36,8 @@ typedef NS_ENUM(NSInteger, MDContainerViewControllerState) {
 
 /** This Method Can Close The MenuView And Display The CenterView **/
 - (void)closeTheMenu;
+
+
 
 @end
 

@@ -10,10 +10,12 @@
 #import "MDTableViewCell.h"
 #import "MDContainerViewController.h"
 #import "MDImagePicker.h"
+#import "MDContainerViewController.h"
 
 @interface MDMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) MDImagePicker *imagePicker;
 
 @end
 
@@ -35,6 +37,75 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
+    
+    
+    // Change background button
+    UIButton *imageChangeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    imageChangeButton.frame = CGRectMake(188 , 480, 60, 70);
+    imageChangeButton.titleLabel.font = [UIFont fontWithName:@"" size:16.0];
+    [imageChangeButton setTintColor:[UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0]];
+    [imageChangeButton setTitle:@"Choose" forState:UIControlStateNormal];
+    [imageChangeButton addTarget:self action:@selector(ChangeBackground:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:imageChangeButton];
+}
+
+
+// Using key value to change the root view controller background image
+- (void)ChangeBackground:(id)sender
+{
+    
+    NSLog(@"the current page is %ld",self.imagePicker.pagController.currentPage);
+    
+    UIImage *image;
+    switch (self.imagePicker.pagController.currentPage) {
+        case 0:
+        {
+            image = [UIImage imageNamed:@"background1.png"];
+        }
+            break;
+        case 1:
+        {
+            image = [UIImage imageNamed:@"background2.png"];
+        }
+            break;
+        case 2:
+        {
+            image = [UIImage imageNamed:@"background3.png"];
+        }
+            break;
+        case 3:
+        {
+            image = [UIImage imageNamed:@"background4.png"];
+        }
+            break;
+        case 4:
+        {
+            image = [UIImage imageNamed:@"background5.png"];
+        }
+            break;
+        case 5:
+        {
+            image = [UIImage imageNamed:@"background6.png"];
+        }
+            break;
+        case 6:
+        {
+            image = [UIImage imageNamed:@"background7.png"];
+        }
+            break;
+        case 7:
+        {
+            image = [UIImage imageNamed:@"background8.png"];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [[[self container].centerViewController.viewControllers objectAtIndex:0] setValue:image forKeyPath:@"backgroundImageView.image"];
+    //[[self container] closeTheMenu];
+
 }
 
 
@@ -128,8 +199,8 @@
 {
     UIView *footerView = [[UIView alloc] init];
     //footerView.backgroundColor = [UIColor yellowColor];
-    MDImagePicker *imagePicker = [[MDImagePicker alloc] initWithFrame:CGRectMake(12, 5, 320, 250)];
-    [footerView addSubview:imagePicker];
+    self.imagePicker = [[MDImagePicker alloc] initWithFrame:CGRectMake(12, 5, 320, 250)];
+    [footerView addSubview:self.imagePicker];
 
     return footerView;
 }

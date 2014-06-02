@@ -7,12 +7,13 @@
 //
 
 #import "MDImagePicker.h"
+#import "MDContainerViewController.h"
+
 
 @interface MDImagePicker ()
 
 @property (nonatomic, strong) UIImageView *backgroundImageView;
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIPageControl *pagController;
 
 @end
 
@@ -57,10 +58,12 @@
     self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:self.backgroundImageView];
     
+    // Title label
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(14, 15, 43, 30)];
     label.text = @"Skin";
     label.textColor = [UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0];
     [self addSubview:label];
+    
 }
 
 - (void)addScrollview
@@ -97,6 +100,7 @@
     self.pagController.pageIndicatorTintColor = [UIColor whiteColor];
     [self addSubview:self.pagController];
 }
+
 
 #pragma mark - UIScrollView Delegate
 

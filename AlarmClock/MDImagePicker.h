@@ -12,4 +12,8 @@
 
 @property (nonatomic, strong) NSMutableArray *images;
 
+// Get current page for menuViewController
+@property (nonatomic, strong) UIPageControl *pagController;
+
+
 @end

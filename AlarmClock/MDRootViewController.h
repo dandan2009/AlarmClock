@@ -10,4 +10,6 @@
 
 @interface MDRootViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIImageView *backgroundImageView;
+
 @end

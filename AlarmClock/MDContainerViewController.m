@@ -23,7 +23,7 @@ static CGFloat kMDSpringVelocity = 0.1f;
 
 @interface MDContainerViewController ()<UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong, readwrite) UIViewController *centerViewController;
+@property (nonatomic, strong, readwrite) UINavigationController *centerViewController;
 @property (nonatomic, strong, readwrite) UIViewController *menuViewController;
 @property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
@@ -41,7 +41,7 @@ static CGFloat kMDSpringVelocity = 0.1f;
 
 
 #pragma mark - The initialize and viewDidLoad method 
-- (id)initWithCenterViewController:(UIViewController *)centerViewController
+- (id)initWithCenterViewController:(UINavigationController *)centerViewController
                 menuViewController:(UIViewController *)menuViewController
 {
     if (self = [super init]) {
@@ -324,7 +324,6 @@ static CGFloat kMDSpringVelocity = 0.1f;
     [self removeTapGesture];
     
 }
-
 
 
 

@@ -14,7 +14,6 @@
 
 @interface MDRootViewController()
 
-@property (nonatomic, weak) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *timeBoard;
 
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
