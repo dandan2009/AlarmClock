@@ -13,4 +13,5 @@
 @property (nonatomic, weak) IBOutlet UILabel *lableName;
 @property (nonatomic, weak) IBOutlet UIImageView *image;
 
+@property (nonatomic, weak) IBOutlet UIImageView *cellSmallImage;
 @end

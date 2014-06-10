@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) MDImagePicker *imagePicker;
+@property (nonatomic, weak) IBOutlet UIImageView *backgroundImageView;
+@property (nonatomic, assign) NSInteger page;
 
 @end
 
@@ -38,25 +40,18 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    
-    // Change background button
-    UIButton *imageChangeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    imageChangeButton.frame = CGRectMake(188 , 480, 60, 70);
-    imageChangeButton.titleLabel.font = [UIFont fontWithName:@"" size:16.0];
-    [imageChangeButton setTintColor:[UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0]];
-    [imageChangeButton setTitle:@"Choose" forState:UIControlStateNormal];
-    [imageChangeButton addTarget:self action:@selector(ChangeBackground:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:imageChangeButton];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.imagePicker scrollToCurrentPage:self.page];
+    
+}
 
 // Using key value to change the root view controller background image
 - (void)ChangeBackground:(id)sender
 {
-    
-    NSLog(@"the current page is %ld",self.imagePicker.pagController.currentPage);
-    
     UIImage *image;
     switch (self.imagePicker.pagController.currentPage) {
         case 0:
@@ -103,8 +98,10 @@
             break;
     }
     
+    self.page = self.imagePicker.pagController.currentPage;
+    
     [[[self container].centerViewController.viewControllers objectAtIndex:0] setValue:image forKeyPath:@"backgroundImageView.image"];
-    //[[self container] closeTheMenu];
+    [[self container] closeTheMenu];
 
 }
 
@@ -133,15 +130,18 @@
         case 0:
         {
             cell.lableName.text = @"Main";
-            //cell.lableName.textColor = [UIColor whiteColor];
-            cell.lableName.textColor = [UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0];
+            cell.lableName.textColor = [UIColor whiteColor];
+            cell.cellSmallImage.image = [UIImage imageNamed:@"cell_small1.png"];
+            //cell.lableName.textColor = [UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0];
+            
         }
             break;
         case 1:
         {
             cell.lableName.text = @"About";
-            //cell.lableName.textColor = [UIColor whiteColor];
-            cell.lableName.textColor = [UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0];
+            cell.lableName.textColor = [UIColor whiteColor];
+            cell.cellSmallImage.image = [UIImage imageNamed:@"cell_small2.png"];
+            //cell.lableName.textColor = [UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0];
         }
             
         default:
@@ -168,6 +168,11 @@
         default:
             break;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -201,6 +206,17 @@
     //footerView.backgroundColor = [UIColor yellowColor];
     self.imagePicker = [[MDImagePicker alloc] initWithFrame:CGRectMake(12, 5, 320, 250)];
     [footerView addSubview:self.imagePicker];
+    // Add a button to select image
+    // Change background button
+    UIButton *imageChangeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    imageChangeButton.frame = CGRectMake( 185, 178, 70, 70);
+    imageChangeButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0];
+    [imageChangeButton setTintColor:[UIColor whiteColor]];
+    [imageChangeButton setTitle:@"Choose" forState:UIControlStateNormal];
+    [imageChangeButton addTarget:self action:@selector(ChangeBackground:) forControlEvents:UIControlEventTouchUpInside];
+    [footerView addSubview:imageChangeButton];
+    
+    
 
     return footerView;
 }

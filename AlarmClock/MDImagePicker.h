@@ -15,5 +15,9 @@
 // Get current page for menuViewController
 @property (nonatomic, strong) UIPageControl *pagController;
 
+- (void)scrollToCurrentPage:(NSInteger)page;
+
+@property (nonatomic, strong) UIImageView *cellSmallImage;
+
 
 @end

@@ -59,10 +59,17 @@
     [self addSubview:self.backgroundImageView];
     
     // Title label
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(14, 15, 43, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(61, 15, 43, 30)];
     label.text = @"Skin";
-    label.textColor = [UIColor colorWithRed:55/255 green:70/255 blue:102/255 alpha:1.0];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0];
+    label.textColor = [UIColor whiteColor];
     [self addSubview:label];
+    
+    // Cell image
+    self.cellSmallImage = [[UIImageView alloc] initWithFrame:CGRectMake(8, 12, 34, 33)];
+    self.cellSmallImage.image = [UIImage imageNamed:@"cell_small3.png"];
+    self.cellSmallImage.contentMode = UIViewContentModeScaleAspectFit;
+    [self addSubview:self.cellSmallImage];
     
 }
 
@@ -101,6 +108,10 @@
     [self addSubview:self.pagController];
 }
 
+- (void)scrollToCurrentPage:(NSInteger)page
+{
+    [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width * page, 0)];
+}
 
 #pragma mark - UIScrollView Delegate
 

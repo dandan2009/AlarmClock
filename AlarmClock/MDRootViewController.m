@@ -11,8 +11,11 @@
 #import "MDWeatherManager.h"
 #import "NSDate+CurrentTimeIntervalWith24Hour.h"
 #import "MDContainerViewController.h"
+#import "MDAddViewController.h"
 
-@interface MDRootViewController()
+#import "MDScaleTransition.h"
+
+@interface MDRootViewController()<MDAddViewControllerDelegate,UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *timeBoard;
 
@@ -29,6 +32,8 @@
 @property (nonatomic, strong) MDTransformerDateFormatter *transformerFormatter;
 @property (nonatomic, strong) NSTimer *dateTimer;
 @property (nonatomic, strong) NSTimer *timer;
+
+@property (nonatomic, strong) MDScaleTransition *presentingAndDismissingAnimated;
 
 @end
 
@@ -68,6 +73,8 @@
                                                                            action:@selector(addButton:)];
         self.navigationItem.rightBarButtonItem = rightButtonItem;
         self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+        
+        self.presentingAndDismissingAnimated = [[MDScaleTransition alloc] init];
         
     }
     return self;
@@ -140,7 +147,28 @@
 
 - (void)addButton:(id)sender
 {
-    
+    MDAddViewController *addViewController = [[MDAddViewController alloc] init];
+    addViewController.delegate = self;
+    addViewController.transitioningDelegate = self;
+    [self presentViewController:addViewController animated:YES completion:nil];
+}
+
+- (void)dissmissTheAddViewController:(MDAddViewController *)addViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - The View Controller Transitioning delegate
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    self.presentingAndDismissingAnimated.transitionStatus = presentingAnimated;
+    return self.presentingAndDismissingAnimated;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    self.presentingAndDismissingAnimated.transitionStatus = dismissingAnimated;
+    return self.presentingAndDismissingAnimated;
 }
 
 @end
